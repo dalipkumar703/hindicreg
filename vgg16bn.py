@@ -1,19 +1,19 @@
-from __future__ import division, print_function
+from __future__ import division, print_function # for interoperability between python 2.5 and 2.6
 
 import os, json
-from glob import glob
+from glob import glob #for unix command line
 import numpy as np
 from scipy import misc, ndimage
 from scipy.ndimage.interpolation import zoom
 
 from keras import backend as K
-from keras.layers.normalization import BatchNormalization
+from keras.layers.normalization import BatchNormalization # for normalising the images mean 0 and standard deviation 1 before using activation function
 from keras.utils.data_utils import get_file
-from keras.models import Sequential
-from keras.layers.core import Flatten, Dense, Dropout, Lambda
-from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D
+from keras.models import Sequential # linear stack of layers
+from keras.layers.core import Flatten, Dense, Dropout, Lambda #core layer to flatten array
+from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D # Zero padding is used to add zeros to normalise the input
 from keras.layers.pooling import GlobalAveragePooling2D
-from keras.optimizers import SGD, Adam
+from keras.optimizers import SGD, Adam #Stochastic gradient descent optimiser
 from keras.preprocessing import image
 
 # In case we are going to use the TensorFlow backend we need to explicitly set the Theano image ordering
